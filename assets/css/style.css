@@ -8,5 +8,11 @@ body{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 50vh;
+    height:80vh;
 }
+/*.transitionForm {*/
+/*    display: flex;*/
+/*    flex-direction: column;*/
+/*    justify-content: center;*/
+/*    align-items: center;*/
+/*}*/

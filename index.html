@@ -13,31 +13,31 @@
     <title>Expense Tracker</title>
 </head>
 <body>
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <h1 class="text-center"> Expense Tracker </h1>
-                <h2 id="totalExp"> Total Expense = $ 0 </h2>
-                <form id="expense-form" class="col-12">
-                    <label for="description" class="form-label"> Type your expense name </label>
-                    <input type="text" id="description" class="form-control" required>
-                    <label for="expense" class="form-label"> Cost </label>
-                    <input type="number" id="expense" class="form-control" required>
-                    <button type="submit" class="btn btn-outline-success mt-3"> Add Expense </button>
+    <div class="container ">
+        <div class="row d-flex  justify-content-center align-items-center">
+            <div class=" col-4 bg-info-subtle  border shadow rounded-2 text-center">
+                <h1 class="mt-5 fw-bolder fs-1"> Expense Tracker </h1>
+                <h2 id="totalExp" class="mb-3 text-warning-emphasis"> Total Expense = $ <span id="balance">0</span> </h2>
 
-                </form>
+                <div class="transitionForm">
+                    <h3 id="formTitle" class="mb-2 text-danger-emphasis"> Add Your Expenses </h3>
 
-                <div class="text-center text-info" >
-                    <h3>Expenses: </h3>
+
+                    <form id="expense-form" class=" d-flex flex-column justify-content-center align-items-center ">
+                                <input type="text" id="description" class="form-control mb-2 " placeholder="Enter Your Expenses" required>
+                                <input placeholder="Enter Amount" type="number" id="expense" class="form-control mb-2 " required>
+                            <button type="submit" class="btn btn-outline-success mb-2 form-control"> Add Transition </button>
+
+                        <button id="cancelEditButton" type="button" style="display: none" class="mb-3"> Cancel Edit </button>
+                    </form>
+                </div>
+                <div class="text-center text-info mt-3 mb-5" >
+                    <h3>History </h3>
                     <ul id="expense-list">
 
                     </ul>
                 </div>
 
-                <div class="visually-hidden ">
-                    <button class="btn btn-outline-warning mb-3"> edit </button>
-                    <button class="btn btn-outline-warning"> cancel </button>
-                </div>
 
             </div>
         </div>
