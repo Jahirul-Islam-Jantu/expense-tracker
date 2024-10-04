@@ -1,7 +1,7 @@
 // Select UI Elements
 let description =  document.querySelector("#description").value
 let cost =  document.querySelector("#expense").value
-let formInput = document.querySelector("#expense-form")
+let expenseForm = document.querySelector("#expense-form")
 let balance = document.querySelector("#balance")
 let list = document.querySelector("#expense-list")
 let submitBtn = document.querySelector("button")
@@ -12,7 +12,12 @@ let title = document.querySelector("#formTitle")
 let transition = JSON.parse(localStorage.getItem('transition')) || []
 let editTransitionId = null
 
-function handleTransction
+
+// Submit Handler form
+function submitHandler (e)  {
+    e.preventDefault()
+
+}
 
 
 
@@ -29,7 +34,8 @@ function handleTransction
 
 
 // event Listner
-formInput.addEventListener("submit", handleTransction)
+
+expenseForm.addEventListener("submit", submitHandler)
 cancelEdit.addEventListener("click", cancelEditFn)
 
 // document.querySelector("#expense-form").addEventListener("submit", event => {
