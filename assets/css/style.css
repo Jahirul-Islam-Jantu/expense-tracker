@@ -25,15 +25,22 @@ ul #expense-list{
 }
 li{
     list-style: none;
-    display: flex;
-
-    gap: 1rem;
+    display:flex;
+    justify-content: space-between;
     align-items: center;
-    justify-content: space-around;
+    gap: 5%;
     border-left: 3px solid #0dcaf0;
     background-color: #ffffff;
     color: #0dcaf0;
     margin-bottom: 1rem;
     padding: 0.3rem;
     border-radius: 0.3rem;
+}
+.income{
+    border-left: 3px solid green;
+    color: green;
+}
+.expense{
+    border-left: 3px solid red;
+    color: red;
 }

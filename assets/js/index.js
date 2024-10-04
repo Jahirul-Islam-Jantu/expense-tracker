@@ -27,11 +27,13 @@ function renderTransactions(){
     list.innerHTML = "";
     transactions.forEach(transaction => {
         const li = document.createElement("li");
-        li.classList.add(transaction.cost > 0 ? "Income" : "Expense")
+        li.classList.add(transaction.cost > 0 ? "income" : "expense")
         li.innerHTML = `
-            ${transaction.description} <span>${transaction.cost > 0 ? "+" : "-"} $ ${Math.abs(transaction.cost)}</span>
-            <button class="btn btn-outline-danger" onclick="deleteTransaction(${transaction.id}) "> x </button>
-            <button class="btn btn-outline-warning" onclick="editTransaction(${transaction.id})"> Edit </button>
+                ${transaction.description} <span>${transaction.cost > 0 ? "+" : "-"} $ ${Math.abs(transaction.cost)}</span>
+            <div>
+            <button class="btn btn-outline-warning " onclick="editTransaction(${transaction.id})"> Edit </button>
+            <button class="btn btn-outline-danger " onclick="deleteTransaction(${transaction.id}) "> x </button>
+            </div>
         `
         list.appendChild(li)
     })
@@ -39,10 +41,17 @@ function renderTransactions(){
 
 // edit and delete fn
 
-// function deleteTransaction(id){
-//     transactions.splice(transactions.indexOf(id), 1)
-//
-// }
+function deleteTransaction(id){
+    const confirmation = confirm("Are you sure you want to delete this transaction?")
+
+    if (confirmation) {
+        transactions =  transactions.filter((transaction) => transaction.id !== id)
+        saveTransactionsToLocalStorage()
+        renderTransactions()
+        updateExpense()
+    }
+
+}
 
 function editTransaction(id){
     const transaction = transactions.find((t) => t.id === id)
@@ -55,6 +64,16 @@ function editTransaction(id){
     editTransitionId = id // reset edit mode
     cancelEdit.style.display = "inline"
 
+}
+
+function cancelEditFn(){
+    descriptionInp.value = "";
+    costInp.value = "";
+
+    submitBtn.textContent = "Add Transaction";
+    title.textContent = "Add New Transaction"
+    editTransitionId = null
+    cancelEdit.style.display = "none"
 }
 
 // Update Balance
