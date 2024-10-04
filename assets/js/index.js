@@ -1,6 +1,6 @@
 // Select UI Elements
-let description =  document.querySelector("#description")
-let cost =  document.querySelector("#expense")
+let descriptionInp =  document.querySelector("#description")
+let costInp =  document.querySelector("#expense")
 let expenseForm = document.querySelector("#expense-form")
 let balance = document.querySelector("#balance")
 let list = document.querySelector("#expense-list")
@@ -37,6 +37,26 @@ function renderTransactions(){
     })
 }
 
+// edit and delete fn
+
+// function deleteTransaction(id){
+//     transactions.splice(transactions.indexOf(id), 1)
+//
+// }
+
+function editTransaction(id){
+    const transaction = transactions.find((t) => t.id === id)
+    descriptionInp.value = transaction.description
+    costInp.value = transaction.cost
+
+    // change the button text and form title to indicate edit mode
+    submitBtn.textContent = "Update Transaction"
+    title.textContent = "Edit Transaction"
+    editTransitionId = id // reset edit mode
+    cancelEdit.style.display = "inline"
+
+}
+
 // Update Balance
 function updateExpense(){
     const amount =  transactions.map(transaction => transaction.cost)
@@ -48,8 +68,8 @@ function updateExpense(){
 // Submit Handler form
 function submitHandler (e)  {
     e.preventDefault()
-    const descriptionT = description.value
-    const costE =  +cost.value
+    const descriptionT = descriptionInp.value
+    const costE =  +costInp.value
 
     if (descriptionT.trim()==="" || costE === 0) {
         alert("Please enter a valid description and value")
@@ -59,7 +79,7 @@ function submitHandler (e)  {
     if ( editTransitionId !== null){
         // edit transaction if transaction value is not null
         const transaction = transactions.find((t)=>t.id ===editTransitionId)
-        transaction.description = description
+        transaction.description = descriptionT
         transaction.cost = costE
         submitBtn.textContent = "Add Transaction"
         title.textContent = "Add New Transaction"
@@ -81,8 +101,8 @@ function submitHandler (e)  {
 
 // Clear input form
 
-description.value = ""
-cost.value = ""
+descriptionInp.value = ""
+costInp.value = ""
 
 }
 
