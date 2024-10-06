@@ -12,7 +12,7 @@ body{
 
 }
 .container{
-    margin-top: 2rem;
+    margin-top: 2%;
 }
 /*.transitionForm {*/
 /*    display: flex;*/
@@ -32,8 +32,8 @@ li{
     border-left: 3px solid #0dcaf0;
     background-color: #ffffff;
     color: #0dcaf0;
-    margin-bottom: 1rem;
-    padding: 0.3rem;
+    margin-bottom: 1%;
+    padding: 0.3%;
     border-radius: 0.3rem;
 }
 .income{
